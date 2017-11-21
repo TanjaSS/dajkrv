@@ -1,7 +1,15 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "presence of email" do
+    user = User.new
+    user.validate
+
+    assert user.errors[:email].present?
+
+    user.email = "tanja@example.com"
+    user.validate
+    
+    assert user.errors[:email].blank?
+  end
 end
