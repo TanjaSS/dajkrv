@@ -13,8 +13,27 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "presence of email" do
-    @user.email = ""
+    @user.email = nil
     assert_not @user.valid?
     assert @user.errors[:email].present?
   end
+
+  test "downcase email" do
+    @user.email = "TANJA@EXAMPLE.COM"
+    @user.save!
+    assert_equal "tanja@example.com", @user.email
+  end
+
+  test "presence of password" do
+    @user.password = nil
+    assert_not @user.valid?
+    assert @user.errors[:password].present?
+  end
+
+  test "password should match confiramtion" do
+    @user.password_confirmation = "secret"
+    assert_not @user.valid?
+    assert @user.errors[:password_confirmation].present?
+  end
+
 end
