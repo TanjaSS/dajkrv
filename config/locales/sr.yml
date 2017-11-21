@@ -1,0 +1,9 @@
+sr:
+  activerecord:
+    attributes:
+      user:
+        password: "Lozinka"
+        password_confirmation: "Potvrda lozinke"
+  errors:
+    messages:
+      confirmation: "se ne poklapa"

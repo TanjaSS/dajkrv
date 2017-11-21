@@ -19,4 +19,13 @@ class SignupsTest < ApplicationSystemTestCase
     click_button "Napravi nalog"
     assert_content "Uspešno ste napravili nalog"
   end
+
+  test "password doesn't match password_confirmation" do
+    visit new_user_path
+    fill_in "Email", :with => "tanja@example.com"
+    fill_in "Lozinka", :with => "password"
+    fill_in "Potvrdi lozinku", :with => "passwod"
+    click_button "Napravi nalog"
+    assert_content "Potvrda lozinke se ne poklapa"
+  end
 end
