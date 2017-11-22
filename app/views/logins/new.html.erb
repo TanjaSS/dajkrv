@@ -1,0 +1,11 @@
+<%= form_for :login, url: login_path do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "Lozinka" %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <%= f.submit "Prijavi se", class: "btn btn-primary" %>
+<% end %>
