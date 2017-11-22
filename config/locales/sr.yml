@@ -9,3 +9,4 @@ sr:
       blank: "je obavezno polje"
       confirmation: "se ne poklapa"
       invalid: "nema validnu vrednost"
+      taken: "već postoji"
