@@ -24,6 +24,15 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "tanja@example.com", @user.email
   end
 
+  test "email uniquness" do
+    @user.save!
+    user2 = User.new(email: "Tanja@example.com",
+                     password: "password",
+                     password_confirmation: "password")
+    assert_not user2.valid?
+    assert user2.errors[:email].present?
+  end
+
   test "presence of password" do
     @user.password = nil
     assert_not @user.valid?
