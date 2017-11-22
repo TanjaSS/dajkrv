@@ -24,6 +24,11 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "tanja@example.com", @user.email
   end
 
+  test "format email" do
+    @user.email = "tanja@example,com"
+    assert_not @user.valid?
+  end
+
   test "email uniquness" do
     @user.save!
     user2 = User.new(email: "Tanja@example.com",
