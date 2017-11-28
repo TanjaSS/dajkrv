@@ -11,6 +11,15 @@ class SignInsTest < ApplicationSystemTestCase
     assert_content "Uspešno ste se prijavili"
   end
 
+  test "invalid email" do
+    visit new_login_path
+    fill_in "Email", with: "nina@example"
+    fill_in "Lozinka", with: "password"
+    click_button "Prijavi se"
+    assert_content "Prijava nije uspela"
+    assert_link "Prijavi se"
+  end
+
   test "invalid password" do
     mika = users(:mika)
     visit new_login_path
