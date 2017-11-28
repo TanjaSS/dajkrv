@@ -1,7 +1,7 @@
 require "application_system_test_case"
 
 class SignInsTest < ApplicationSystemTestCase
-  test "user sign in" do
+  test "user sign in and sign out" do
     mika = users(:mika)
     visit root_path
     click_link "Prijavi se"
@@ -9,6 +9,10 @@ class SignInsTest < ApplicationSystemTestCase
     fill_in "Lozinka", with: "tanjapassword"
     click_button "Prijavi se"
     assert_content "Uspešno ste se prijavili"
+
+    click_link "Odjavi se"
+    assert_content "Uspešno ste se odjavili"
+    assert_link "Prijavi se"
   end
 
   test "invalid email" do

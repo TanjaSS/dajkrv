@@ -10,6 +10,10 @@
 
   <body>
     <div class="container">
+      <% if user_signed_in? %>
+        <%= link_to "Odjavi se", login_path, method: :delete %>
+      <% end %>
+
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>

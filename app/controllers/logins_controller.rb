@@ -11,4 +11,10 @@ class LoginsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:succes] = "Uspešno ste se odjavili"
+    redirect_to root_path
+  end
 end
