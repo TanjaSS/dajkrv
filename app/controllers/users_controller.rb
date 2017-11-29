@@ -5,7 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    unless @user.save
+    if @user.save
+      flash[:success] = "Uspešno ste napravili nalog"
+      redirect_to edit_settings_path
+    else
       render :new
     end
   end
