@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Uspešno ste napravili nalog"
+      session[:user_id] = @user.id
       redirect_to edit_settings_path
     else
       render :new
