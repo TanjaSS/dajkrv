@@ -3,11 +3,7 @@ require "application_system_test_case"
 class SettingsTest < ApplicationSystemTestCase
   test "settings" do
     mika = users(:mika)
-    visit root_path
-    click_link "Prijavi se"
-    fill_in "Email", with: mika.email
-    fill_in "Lozinka", with: "tanjapassword"
-    click_button "Prijavi se"
+    login(mika.email, "tanjapassword")
 
     select "6", from: "Koliko često želiš da daješ krv?"
     select "25", from: "user_last_donation_at_3i"
