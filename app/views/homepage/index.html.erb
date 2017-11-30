@@ -2,5 +2,7 @@
 <p>
   Podsetnik za davaoce krvi.
 </p>
-<%= link_to "Napravi nalog", new_user_path %>
-<%= link_to "Prijavi se", new_login_path %>
+<% unless user_signed_in? %>
+  <%= link_to "Napravi nalog", new_user_path %>
+  <%= link_to "Prijavi se", new_login_path %>
+<% end %>

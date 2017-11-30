@@ -12,6 +12,7 @@
     <div class="container">
       <% if user_signed_in? %>
         <%= link_to "Odjavi se", login_path, method: :delete %>
+        <%= link_to "Podešavanja", edit_settings_path %>
       <% end %>
 
       <% flash.each do |message_type, message| %>
