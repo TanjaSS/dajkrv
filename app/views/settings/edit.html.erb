@@ -6,6 +6,10 @@
         <%= f.label :period, "Koliko često želiš da daješ krv?" %>
         <%= f.select :period, [[3, 3], [4, 4], [6, 6], [9, 9], [12, 12]], class: "form-control" %>
       </div>
+      <div class="form-group">
+        <%= f.label :last_donation_at, "Poslednja donacija" %>
+        <%= f.text_field :last_donation_at, class: "form-control" %>
+      </div>
       <%= f.submit "Sačuvaj", class: "btn btn-primary" %>
     <% end %>
   </div>

@@ -13,6 +13,6 @@ class SettingsController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:period)
+      params.require(:user).permit(:period, :last_donation_at)
     end
 end
