@@ -9,6 +9,10 @@
         <%= f.text_field :email, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.label :period, "Koliko često želiš da daješ krv?" %>
+        <%= f.select :period, [[3, 3], [4, 4], [6, 6], [9, 9], [12, 12]], class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :password, "Lozinka" %>
         <%= f.password_field :password, class: "form-control" %>
       </div>

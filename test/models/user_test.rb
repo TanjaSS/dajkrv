@@ -5,7 +5,8 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(email: "tanja@example.com",
                      password: "password",
-                     password_confirmation: "password")
+                     password_confirmation: "password",
+                     period: 6)
   end
 
   test "valid user" do
@@ -48,6 +49,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password_confirmation = "secret"
     assert_not @user.valid?
     assert @user.errors[:password_confirmation].present?
+  end
+
+  test "presence of period" do
+    @user.period = nil
+    assert_not @user.valid?
+    assert @user.errors[:period].present?
   end
 
 end
