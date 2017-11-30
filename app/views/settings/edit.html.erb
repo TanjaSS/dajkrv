@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <%= f.label :last_donation_at, "Poslednja donacija" %>
-        <%= f.text_field :last_donation_at, class: "form-control" %>
+        <%= f.date_select :last_donation_at, class: "form-control" %>
       </div>
       <%= f.submit "Sačuvaj", class: "btn btn-primary" %>
     <% end %>

@@ -4,6 +4,12 @@ sr:
       user:
         password: "Lozinka"
         password_confirmation: "Potvrda lozinke"
+  date:
+    month_names: [~, Januar, Februar, Mart, April, Maj, Jun, Jul, Avgust, Septembar, Oktobar, Novembar, Decembar]
+    order:
+      - day
+      - month
+      - year
   errors:
     messages:
       blank: "je obavezno polje"
