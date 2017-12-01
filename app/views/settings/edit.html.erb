@@ -3,12 +3,12 @@
     <%= form_for @user, url: settings_path do |f| %>
       <%= render 'shared/error_messages', record: @user %>
       <div class="form-group">
-        <%= f.label :period, "Koliko često želiš da daješ krv?" %>
-        <%= f.select :period, [[3, 3], [4, 4], [6, 6], [9, 9], [12, 12]], class: "form-control" %>
+        <%= f.label :period, "Koliko često želiš da daješ krv? Koliko meseci da bude pauza? " %>
+        <%= f.select :period, [[3, 3], [4, 4], [6, 6], [9, 9], [12, 12]] %>
       </div>
       <div class="form-group">
-        <%= f.label :last_donation_at, "Poslednja donacija" %>
-        <%= f.date_select :last_donation_at, include_blank: true, class: "form-control" %>
+        <%= f.label :last_donation_at, "Poslednja donacija: " %>
+        <%= f.date_select :last_donation_at, include_blank: true %>
       </div>
       <%= f.submit "Sačuvaj", class: "btn btn-primary" %>
     <% end %>

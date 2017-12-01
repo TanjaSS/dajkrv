@@ -1,8 +1,12 @@
-<h1>Daj krv!</h1>
-<p>
-  Podsetnik za davaoce krvi.
-</p>
-<% unless user_signed_in? %>
-  <%= link_to "Napravi nalog", new_user_path %>
-  <%= link_to "Prijavi se", new_login_path %>
-<% end %>
+<div class="text-center">
+  <h1>Podsetnik za davaoce krvi</h1>
+
+  <%= image_tag "bg.jpg", class: "bg-image"%>
+
+  <% unless user_signed_in? %>
+    <div class="login-links">
+      <%= link_to "Napravi nalog", new_user_path, class: "btn btn-success btn-lg" %>
+      <%= link_to "Prijavi se", new_login_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  <% end %>
+</div>
