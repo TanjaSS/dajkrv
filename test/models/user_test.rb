@@ -57,4 +57,15 @@ class UserTest < ActiveSupport::TestCase
     assert @user.errors[:period].present?
   end
 
+  test "#send_reminder?" do
+    @user.last_donation_at = Date.today
+    assert_not @user.send_reminder?
+
+    @user.last_donation_at = 5.months.ago
+    assert_not @user.send_reminder?
+
+    @user.last_donation_at = 6.months.ago
+    assert @user.send_reminder?
+  end
+
 end
