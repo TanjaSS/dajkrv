@@ -7,6 +7,10 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :period, presence: true
 
+  def self.to_remind
+    User.all.select(&:send_reminder?)
+  end
+
   def send_reminder?
     last_donation_at + period.months <= Date.today
   end

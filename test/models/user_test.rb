@@ -68,4 +68,14 @@ class UserTest < ActiveSupport::TestCase
     assert @user.send_reminder?
   end
 
+  test ".to_remind" do
+    mika = users(:mika)
+    nika = users(:nika)
+
+    mika.update!(last_donation_at: 4.months.ago)
+    nika.update!(last_donation_at: 2.months.ago)
+
+    assert_equal [mika], User.to_remind
+  end
+
 end

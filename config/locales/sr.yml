@@ -4,6 +4,9 @@ sr:
       user:
         password: "Lozinka"
         password_confirmation: "Potvrda lozinke"
+    errors:
+      messages:
+        record_invalid: "Validacija nije uspela: %{errors}"
   date:
     month_names: [~, Januar, Februar, Mart, April, Maj, Jun, Jul, Avgust, Septembar, Oktobar, Novembar, Decembar]
     order:
