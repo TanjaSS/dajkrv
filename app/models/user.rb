@@ -15,6 +15,10 @@ class User < ApplicationRecord
     last_donation_at + period.months <= Date.today
   end
 
+  def days_since_last_donation
+    ((Time.current - last_donation_at.to_time) / 1.day).to_i
+  end
+
   private
 
     def downcase_email

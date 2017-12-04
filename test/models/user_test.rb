@@ -78,4 +78,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal [mika], User.to_remind
   end
 
+  test "#days_since_last_donation" do
+    @user.last_donation_at = 5.days.ago
+    assert_equal 5, @user.days_since_last_donation
+  end
+
 end
