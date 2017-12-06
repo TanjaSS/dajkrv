@@ -1,10 +1,7 @@
 class SettingsController < ApplicationController
-  def edit
-    unless user_signed_in?
-      redirect_to new_login_path
-      return
-    end
+  before_action :verify_user
 
+  def edit
     @user = current_user
   end
 
