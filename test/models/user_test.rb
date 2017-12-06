@@ -83,4 +83,15 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 5, @user.days_since_last_donation
   end
 
+  test "#make_admin" do
+    mika = users(:mika)
+    mika.make_admin
+
+    assert mika.admin?
+
+    mika.reload
+
+    assert mika.admin?
+  end
+
 end

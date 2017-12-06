@@ -19,9 +19,13 @@ class User < ApplicationRecord
     ((Time.current - last_donation_at.to_time) / 1.day).to_i
   end
 
+  def make_admin
+    update_attribute(:admin, true)
+  end
+
   private
 
     def downcase_email
-      self.email.downcase!
+      email.downcase!
     end
 end
