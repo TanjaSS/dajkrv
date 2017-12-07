@@ -21,6 +21,7 @@
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
       <%= f.submit "Napravi nalog", class: "btn btn-primary" %>
+      <span>Već imaš nalog? <%= link_to "Prijavi se", new_login_path %></span>
     <% end %>
   </div>
 </div>

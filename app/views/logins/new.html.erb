@@ -10,6 +10,7 @@
         <%= f.password_field :password, class: "form-control" %>
       </div>
       <%= f.submit "Prijavi se", class: "btn btn-primary" %>
+      <span>Nemaš nalog? <%= link_to "Napravi nalog", new_user_path %></span>
     <% end %>
   </div>
 </div>
