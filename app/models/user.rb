@@ -12,6 +12,7 @@ class User < ApplicationRecord
   end
 
   def send_reminder?
+    return false if last_donation_at.nil?
     last_donation_at + period.months <= Date.today
   end
 

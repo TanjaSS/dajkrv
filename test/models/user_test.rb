@@ -66,6 +66,9 @@ class UserTest < ActiveSupport::TestCase
 
     @user.last_donation_at = 6.months.ago
     assert @user.send_reminder?
+
+    @user.last_donation_at = nil
+    assert_not @user.send_reminder?
   end
 
   test ".to_remind" do
