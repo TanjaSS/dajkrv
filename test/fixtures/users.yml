@@ -9,3 +9,9 @@ nika:
   email: "nika@example.com"
   password_digest: "$2a$10$CwpiS4VTBA3I4NsTuzAuFuWvPebFum241YAEJLsRd9V3GGDBR0nry"
   period: 3
+
+admin:
+  email: "admin@example.com"
+  password_digest: "$2a$10$CwpiS4VTBA3I4NsTuzAuFuWvPebFum241YAEJLsRd9V3GGDBR0nry"
+  period: 3
+  admin: true
