@@ -18,4 +18,17 @@ class AdminUsersTest < ApplicationSystemTestCase
     visit admin_users_path
     assert_content "The page you were looking for doesn't exist."
   end
+
+  test "admin can see user details" do
+    mika = users(:mika)
+    mika.update(last_donation_at: Date.today)
+    admin = users(:admin)
+    login(admin.email, "tanjapassword")
+    visit admin_users_path
+    click_link mika.email
+    assert_content mika.email
+    assert_content mika.id
+    assert_content mika.period
+    assert_content mika.last_donation_at
+  end
 end

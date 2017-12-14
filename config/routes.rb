@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resource :settings, only: [:edit, :update]
 
   namespace :admin do
-    resources :users, only: [:index]
+    resources :users, only: [:index, :show]
   end
 end
