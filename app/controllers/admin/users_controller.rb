@@ -10,6 +10,13 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "Korisnik je uspešno obrisan"
+    redirect_to admin_users_path
+  end
+
   private
 
     def verify_admin

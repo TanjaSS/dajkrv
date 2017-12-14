@@ -31,4 +31,17 @@ class AdminUsersTest < ApplicationSystemTestCase
     assert_content mika.period
     assert_content mika.last_donation_at
   end
+
+  test "admin can delete users" do
+    mika = users(:mika)
+    admin = users(:admin)
+    login(admin.email, "tanjapassword")
+    visit admin_users_path
+    assert_content mika.email
+    within "#user-#{mika.id}" do
+      click_link "Delete"
+    end
+    assert_no_content mika.email
+    assert_content "Korisnik je uspešno obrisan"
+  end
 end

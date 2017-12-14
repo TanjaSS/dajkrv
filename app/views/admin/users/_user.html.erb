@@ -1,3 +1,10 @@
-<li>
-  <%= link_to user.email, admin_user_path(user) %>
-</li>
+<tr id="user-<%= user.id %>">
+  <td>
+    <%= link_to user.email, admin_user_path(user) %>
+  </td>
+  <td>
+    <% unless user == current_user %>
+      <%= link_to "Delete", admin_user_path(user), method: "delete" %>
+    <% end %>
+  </td>
+</tr>
