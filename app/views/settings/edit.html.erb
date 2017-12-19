@@ -12,5 +12,13 @@
       </div>
       <%= f.submit "Sačuvaj", class: "btn btn-primary" %>
     <% end %>
+    <%=
+      link_to(
+        "Obriši nalog",
+        user_path(@user),
+        method: :delete,
+        data: { confirm: "Da li ste sigurni?" }
+      )
+    %>
   </div>
 </div>

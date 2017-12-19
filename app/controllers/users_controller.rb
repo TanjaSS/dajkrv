@@ -15,6 +15,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    session.delete(:user_id)
+    flash[:success] = "Uspešno ste obrisali nalog"
+    redirect_to root_path
+  end
+
   private
 
     def user_params
